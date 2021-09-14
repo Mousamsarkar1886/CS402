@@ -1,0 +1,39 @@
+Code for Histogram Plot
+
+
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+data = np.loadtxt("C:/Users/moonl/Desktop/tex.din.txt", dtype=str)[:,1]
+
+new_arr = []
+for cell in data:
+    new_arr.append(int(cell, 16))
+
+plt.hist(new_arr, bins=10)
+plt.ylabel('Count Of Addresses')
+plt.xlabel('Addresses')
+
+
+
+Code for Read and Write Frequencies
+
+
+
+import numpy as np
+
+data = np.loadtxt("C:/Users/moonl/Desktop/tex.din.txt", dtype=str)[:,0]
+
+read = 0
+write = 0
+for cell in data:
+    int_cell = int(cell)
+    if int_cell == 0:
+        read += 1
+    elif int_cell == 1:
+        write += 1
+    else:
+        continue
+
+print("frequency of read: ", read, "\nfrequency of write: ", write)
